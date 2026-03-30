@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import BottomNav from "./components/layout/BottomNav"
 import { getSettings } from "./lib/api"
 import Home from "./pages/Home"
@@ -32,7 +32,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-container min-h-screen" data-theme={theme}>
         <div className="pb-20">
           <Routes>
@@ -49,6 +49,6 @@ export default function App() {
         </div>
         <BottomNav />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }

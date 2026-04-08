@@ -43,7 +43,7 @@ export default function Home() {
           </div>
           <div className="rounded-[10px] nb-border p-3" style={{background:"var(--bg-2)"}}>
             <p className="text-xs font-medium text-[var(--text-3)]">Profit</p>
-            <p className="text-lg font-bold mt-1 text-[var(--success)]" style={{fontFamily:"var(--font-mono)"}}>{formatCurrency(data.month.profit)}</p>
+            <p className="text-lg font-bold mt-1 text-[var(--success)]" style={{fontFamily:"var(--font-mono)"}}>{formatCurrency(data.month.profit || 0)}</p>
           </div>
         </div>
         {data.low_stock_alerts && data.low_stock_alerts.length > 0 && (

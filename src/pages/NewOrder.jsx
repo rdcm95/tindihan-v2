@@ -122,26 +122,18 @@ export default function NewOrder() {
         />
       </div>
 
-      <div className="px-4 pb-2 overflow-x-auto">
-        <div className="flex gap-2">
-          <button
-            onClick={() => setActiveCategory(null)}
-            className="px-3 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap nb-border"
-            style={!activeCategory ? {background:"var(--accent)", color:"#fff", borderColor:"var(--accent)"} : {background:"var(--bg-3)"}}
-          >
-            All
-          </button>
+      {/* Category filter */}
+      <div className="px-4 pt-3 pb-2">
+        <select
+          className="nb-input text-sm rounded-lg"
+          value={activeCategory ?? ""}
+          onChange={e => setActiveCategory(e.target.value ? parseInt(e.target.value) : null)}
+        >
+          <option value="">All</option>
           {categories.map(c => (
-            <button
-              key={c.id}
-              onClick={() => setActiveCategory(c.id)}
-              className="px-3 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap nb-border"
-              style={activeCategory === c.id ? {background:"var(--accent)", color:"#fff", borderColor:"var(--accent)"} : {background:"var(--bg-3)"}}
-            >
-              {c.name}
-            </button>
+            <option key={c.id} value={c.id}>{c.name}</option>
           ))}
-        </div>
+        </select>
       </div>
 
       <div className="px-4 pb-4 grid grid-cols-3 gap-2">
